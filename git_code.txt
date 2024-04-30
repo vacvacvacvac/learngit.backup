@@ -1,0 +1,50 @@
+git status /查看当前暂存区状态
+git diff /查看文件改动
+git diff HEAD -- readme.txt /查看工作区和版本库和最新版本的区别
+git log /查看提交日志,可查id
+git remove -v /查看远程库信息
+
+git init /创建git库
+
+文件传输到库
+ git add <file_name> /上传文件到暂存区
+ git commit -m "<file_name>" /上传文件到库
+
+回退版本
+ 库中回退版本
+  git reset --hard HEAD^  /在库中回退一个版本add
+  git reset --hard HEAD^^ /在库中回退两个版本add
+  git reset --hard <id>   /在库中回退一个版本add
+
+ 在暂存区回退版本(add后)
+  git reset HEAD <file_name> 
+  git checkout -- <file_name> //当文件在暂存区(add)需要回撤版本
+删除文件
+ git rm <file_name> 
+ git commit -m "remove <file_name>"  //删除文件
+ git checkout -- <file_name> /误删，将文件从库中提取恢复出来
+
+
+绑定github远程库
+ git remote add origin git@github.com:<github_username>/<name>.git
+ git push -u origin master /第一次建库后的提交
+ git push origin master /之后提交
+  删除连接
+  git remove -v /查看远程库信息
+  git remote rm origin /解除绑定关系
+
+clone远程库内容
+  git remote add origin git@github.com:<github_username>/<name>.git
+  git clone git@github.com:<github_username>/<name>.git
+
+分支
+ 创建与合并
+  git switch -c <new_name>
+  git branch /查看分支
+  ............【修改文件】/切记add commit
+  git switch <master> /切换到master分支
+  git merge <dev> /合并dev时间线库到当前分支
+ 删除分支
+ git branch -d <dev> /完成后建议删除分支
+
+
